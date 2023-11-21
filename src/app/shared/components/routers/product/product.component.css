@@ -1,0 +1,37 @@
+.container{
+    display: flex;
+    padding: 2rem 22.8rem;
+    gap: 14.8rem;
+}
+
+.product_gallerey{
+    width: 84.4rem;
+    height: 45.6rem;
+    background-color: #fff;
+    border-radius: 1.1rem;
+}
+
+.product_image{
+    display: block;
+    width: 100%;
+    object-fit: cover;
+}
+
+.product_info{
+    color: #000;
+    font-size: 1.6rem;
+    font-family: 'DaysOne';
+    width: 47.2rem;
+    height: 33.6rem;
+    background-color: #fff;
+}
+
+.product_name{
+    margin-bottom: 3rem;
+}
+
+.product_price{
+    color: #CA0D0D;
+    font-family: 'Normalidad';
+    font-weight: 700;
+}

@@ -1,0 +1,18 @@
+<app-header></app-header>
+
+<div class="settings-bar"> 
+    <div>Фильтры</div>
+    <div>Сортировка</div>
+</div>
+
+<div class="container">
+    <div class="product" *ngFor="let product of cards" (click)="goToProduct(product.id)">
+      <img class="star" ngClass="active" src="" alt="">
+      <img class="product-image" src="{{product.imageUrl}}" alt="{{product.name}}">
+      <div class="product-description">
+        <h2 class="product-name">{{product.name}}</h2>
+        <p class="product-price">{{getFormattedPrice(product.price)}}</p>
+      </div>
+    </div>
+</div>
+<app-footer></app-footer>
