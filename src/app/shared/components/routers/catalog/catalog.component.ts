@@ -1,15 +1,17 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProductServiceService } from 'src/app/core/services/product-service.service';
+import { ProductService } from 'src/app/core/services/product.service';
+import { carouselImage } from '../../carousel/carousel.component';
 
-export default interface Card{
+export default interface Product{
   id: number,
   name: string,
   description: string,
   // producrCategoryId: number,
   // productTypeId: number,
   price: number,
-  imageUrl: string,
+  imageObj: carouselImage[],
+  sizes: string[]
   // brandTypeId: number,
   // genderTypeId: number
 }
@@ -21,7 +23,7 @@ export default interface Card{
 })
 export class CatalogComponent implements OnInit{
 
-  constructor(private router: Router, private productService: ProductServiceService) { }
+  constructor(private router: Router, private productService: ProductService) { }
 
   ngOnInit() {
     this.cards = this.productService.getAllCards();
@@ -39,7 +41,7 @@ export class CatalogComponent implements OnInit{
     return `${this.formatNumber(price)} ₽`; 
   }
 
-  @Input() cards: Card[] = [
+  @Input() cards: Product[] = [
     
   ]
 }

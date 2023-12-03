@@ -8,6 +8,8 @@
 .main-section__carousel{
     width: 68.4rem;
     height: 50.7rem;
+    overflow: hidden;
+    box-shadow: 0 -5px 20px #0ABAB5; 
     background-color: #fff;
     border-radius: 2rem;
     border-top-right-radius: 0;
@@ -28,3 +30,4 @@
     text-align: center;
     margin-top: 2rem;
 }
+

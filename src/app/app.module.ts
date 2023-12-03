@@ -11,7 +11,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { CarouselComponent } from './shared/components/carousel/carousel.component';
 import { CatalogComponent } from './shared/components/routers/catalog/catalog.component';
 import { ProductComponent } from './shared/components/routers/product/product.component';
-import { ProductServiceService } from './core/services/product-service.service';
+import { ProductService } from './core/services/product.service';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -32,7 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [ProductServiceService],
+  providers: [ProductService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

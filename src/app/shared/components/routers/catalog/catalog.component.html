@@ -6,10 +6,12 @@
 </div>
 
 <div class="container">
-    <div class="product" *ngFor="let product of cards" (click)="goToProduct(product.id)">
+    <div class="product" *ngFor="let product of cards">
       <img class="star" ngClass="active" src="" alt="">
-      <img class="product-image" src="{{product.imageUrl}}" alt="{{product.name}}">
-      <div class="product-description">
+      <div class="product-image">
+        <app-carousel [images]="product.imageObj"></app-carousel>
+      </div>
+      <div class="product-description" (click)="goToProduct(product.id)">
         <h2 class="product-name">{{product.name}}</h2>
         <p class="product-price">{{getFormattedPrice(product.price)}}</p>
       </div>

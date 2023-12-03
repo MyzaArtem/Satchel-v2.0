@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ProductServiceService } from 'src/app/core/services/product-service.service';
-import Card from '../catalog/catalog.component';
+import { ProductService } from 'src/app/core/services/product.service';
+import Product from '../catalog/catalog.component';
 
 @Component({
   selector: 'app-product',
@@ -12,20 +12,35 @@ export class ProductComponent implements OnInit {
 
   id = 0;
 
-  constructor( private route: ActivatedRoute, private productService: ProductServiceService) { }
+  selectedSize: string | null = null;
+
+  onSizeClick(size: string) {
+    if (size === this.selectedSize) {
+      this.selectedSize = null;  
+    } else {
+      this.selectedSize = size;
+    }
+
+    console.log('Selected size:', this.selectedSize);
+  }
+
+  constructor( private route: ActivatedRoute, private productService: ProductService) { }
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     this.id = id ? +id : 0;
+
     const card = this.productService.getCardById(this.id);
     this.card = card ? card : this.card;
   }
 
-  @Input() card: Card = {
+  @Input() card: Product = {
     id: 0,
     description: '',
     name: '',
     price: 0,
-    imageUrl: ''
+    imageObj: [{imageSrc: '', imageAlt: ''}],
+    sizes: ['']
   }
+
 }

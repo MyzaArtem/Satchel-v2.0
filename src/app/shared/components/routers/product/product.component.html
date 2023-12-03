@@ -1,12 +1,25 @@
 <app-header></app-header>
 
 <div class="container">
-    <div class="product_gallerey">
-        <img class="product_image" [src]="card.imageUrl" [alt]="card.name">
+    <div class="product_gallery">
+        <div class="image-container">
+            <app-carousel class="product-carousel" [images]="card.imageObj"></app-carousel>
+        </div>
     </div>
     <div class="product_info">
         <p class="product_name">{{card.name}}</p>
         <p class="product_price">{{card.price}}</p>
+
+        <ul class="sizes-container">
+            <li class="size-box" *ngFor="let size of card.sizes"
+                [class.selected]="size === selectedSize"
+                (click)="onSizeClick(size)"
+            > 
+                {{size}}
+            </li>
+        </ul>
+
+        <button class="buy-btn"> Добавить в корзину</button>
     </div>
 </div>
 

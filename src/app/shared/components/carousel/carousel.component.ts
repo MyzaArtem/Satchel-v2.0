@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 
-interface carouselImage {
+export interface carouselImage {
   imageSrc: string,
   imageAlt: string
 }
@@ -14,8 +14,7 @@ export class CarouselComponent {
 
   @Input() images: carouselImage[] = []
   @Input() indicators = true
-  @Input() controls = true 
-  @Input() autoslide = true
+  @Input() autoslide = false
   @Input() slideInterval = 3000
 
   selectedIndex = 0;
